@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Add post</h3>
+    {% if messages %} {% for msg in messages %}
+    <p style="color: green">{{msg}}</p>
+    {%endfor%} {%endif%}
+    <form method="POST" action="/add">
+      {% csrf_token %}
+      <input type="text" name="title" /> <br />
+      <textarea name="detail" cols="30" rows="10"></textarea>
+      <button type="submit">Add post</button>
+    </form>
+  </body>
+</html>
